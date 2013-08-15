@@ -1,3 +1,4 @@
+(setq default-directory "d:/home/hanbyulkim")
 (set-face-attribute 'default nil :font "³ª´®°íµñÄÚµù-11") ; font setup
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
       backup-by-copying t   ; Don't delink hardlinks
@@ -6,13 +7,13 @@
       kept-new-versions 20  ; how many of the newest versions to keep
       kept-old-versions 5   ; and how many of the old
 )
-(setq default-directory "d:/home/hanbyulkim")
-;(cd "d:/home/hanbyulkim")
+
+; color theme select
 (setq load-path (cons (expand-file-name "~/.emacs.d/color-theme-6.6.0") load-path))
 (load-library "color-theme")
 (require 'color-theme)
 (color-theme-initialize)
-;(color-theme-Calm-forest)
+(color-theme-calm-forest)
 
 ; slime setup
 (setq inferior-lisp-program "d:/home/bin/clisp/full/lisp.exe
