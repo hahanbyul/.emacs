@@ -1,7 +1,8 @@
 (setq default-directory "d:/home/hanbyulkim")
+(server-start) ; to run emacs only one time
 (add-to-list 'load-path "~/.emacs.d/")
 (set-face-attribute 'default nil :font "³ª´®°íµñÄÚµù-11") ; font setup
-(setq backup-directory-alist '(("." . "~/.emacs.d/backup"))
+(setq backup-directory-alist '(("." . "~/.emacs.d/backup")) ; backup file setup
       backup-by-copying t   ; Don't delink hardlinks
       version-control t     ; use version numbers on backups
       delete-old-versions t ; Automatically delete excess backups
@@ -30,22 +31,41 @@
 ; org mode setup
 (add-to-list 'load-path "~/.emacs.d/elpa/org-20130812")
 (require 'org)
+
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 (global-set-key "\C-cc" 'org-capture)
+
 (setq org-log-done t)
 (setq org-agenda-files (quote ("~/org")))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-templates
-      '(("i" "inbox" entry (file+headline "~/org/gtd.org" "Inbox")
-             "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree "~/org/journal.org")
-             "* %?\nEntered on %U\n  %i\n  %a")))
+      '(("i" "inbox" entry (file+headline "~/org/gtd.org" "Inbox") "* TODO %?\n  %i\n")
+        ;("j" "Journal" entry (file+datetree "~/org/journal.org") "* %?\nEntered on %U\n  %i\n  %a")
+	("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO %?\n  %i\n")
+	("r" "reading" entry (file+headline "~/org/reading.org" "Inbox") "* TODO %?\n  %i\n")
 
+))
+(setq org-tag-alist '(("@office" . ?o) ("@home" . ?h) ("@outside" . ?o) ("@computer" . ?c) ("@smartphone" . ?s)))
 (setq org-directory "~/org") ; Set to the location of your Org files on your local system
 (setq org-mobile-inbox-for-pull "~/org/gtd.org") ; Set to the name of the file where new notes will be stored
 (setq org-mobile-directory "~/Dropbox/¾Û/MobileOrg") ; Set to <your Dropbox root directory>/MobileOrg.
+
+; org mode -- refile setup
+; Targets include this file and any file contributing to the agenda - up to 9 levels deep
+(setq org-refile-targets (quote ((nil :maxlevel . 1)
+                                 (org-agenda-files :maxlevel . 1))))
+(setq org-refile-use-outline-path t) ; Use full outline paths for refile targets - we file directly with IDO
+(setq org-outline-path-complete-in-steps nil) ; Targets complete directly with IDO
+(setq org-refile-allow-creating-parent-nodes (quote confirm)) ; Allow refile to create parent tasks with confirmation
+(setq org-completion-use-ido t) ; Use IDO for both buffer and file completion and ido-everywhere to t
+(setq ido-everywhere t)
+(setq ido-max-directory-size 100000)
+(ido-mode (quote both))
+(setq ido-default-file-method 'selected-window) ; Use the current window when visiting files and buffers with ido
+(setq ido-default-buffer-method 'selected-window)
+(setq org-indirect-buffer-display 'current-window) ; Use the current window for indirect buffer display
 
 ; evil setup
 (add-to-list 'load-path "~/.emacs.d/evil")
