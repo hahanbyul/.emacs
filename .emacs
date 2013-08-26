@@ -40,14 +40,15 @@
 (setq org-agenda-files (quote ("~/org")))
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-templates
-      '(("i" "inbox" entry (file+headline "~/org/gtd.org" "Inbox") "* TODO %?\n  %i\n")
-	("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO %?\n  %i\n")
-	("r" "reading" entry (file+headline "~/org/reading.org" "Inbox") "* TODO %?\n  %i\n")
-	("t" "tremor" entry (file+headline "~/org/tremor.org" "Inbox") "* %?\n  %i\n")
+      '(("c" "collect" entry (file+headline "~/org/collect.org" "Inbox") "* TODO %?\n  %i\n")
+        ("t" "research (tremor)" entry (file+headline "~/org/research.org" "Inbox (tremor)") "* %?\n  %i\n")
+        ("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO Study %?\n  %i\n")
+        ("r" "read" entry (file+headline "~/org/read.org" "Inbox") "* TODO Read %?\n  %i\n")
+        ("b" "buy" entry (file+headline "~/org/buy.org" "Inbox") "* Buy %?\n  %i\n")
         ("j" "journal" entry (file+datetree "~/org/journal.org") "* %?\nEntered on %U\n  %i\n  %a")
 
 ))
-(setq org-tag-alist '(("@OFFICE" . ?o) ("@HOME" . ?h) ("@OUTSIDE" . ?o) ("@COMPUTER" . ?c) ("@SMARTPHONE" . ?s)))
+(setq org-tag-alist '(("@LAB" . ?l) ("@HOME" . ?h) ("@OUTSIDE" . ?o) ("@COMPUTER" . ?c) ("@SMARTPHONE" . ?s)))
 (setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "APPT(a)" "|" "DONE(d)" "CANCELLED(c)" "DEFERRED(f)")))
 
 (setq org-directory "~/org") ; Set to the location of your Org files on your local system
