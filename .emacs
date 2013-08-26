@@ -11,10 +11,9 @@
 )
 
 ; color theme select
-;(setq load-path (cons (expand-file-name "~/.emacs.d/color-theme") load-path))
-;(load-library "color-theme")
-;(require 'color-theme)
-;(color-theme-initialize)
+(setq load-path (cons (expand-file-name "~/.emacs.d/color-theme") load-path))
+(require 'color-theme)
+(color-theme-initialize)
 ;(color-theme-calm-forest)
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized") ; solarized
 (load-theme 'solarized-dark t)
@@ -42,12 +41,15 @@
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-templates
       '(("i" "inbox" entry (file+headline "~/org/gtd.org" "Inbox") "* TODO %?\n  %i\n")
-        ;("j" "Journal" entry (file+datetree "~/org/journal.org") "* %?\nEntered on %U\n  %i\n  %a")
 	("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO %?\n  %i\n")
 	("r" "reading" entry (file+headline "~/org/reading.org" "Inbox") "* TODO %?\n  %i\n")
+	("t" "tremor" entry (file+headline "~/org/tremor.org" "Inbox") "* %?\n  %i\n")
+        ("j" "journal" entry (file+datetree "~/org/journal.org") "* %?\nEntered on %U\n  %i\n  %a")
 
 ))
-(setq org-tag-alist '(("@office" . ?o) ("@home" . ?h) ("@outside" . ?o) ("@computer" . ?c) ("@smartphone" . ?s)))
+(setq org-tag-alist '(("@OFFICE" . ?o) ("@HOME" . ?h) ("@OUTSIDE" . ?o) ("@COMPUTER" . ?c) ("@SMARTPHONE" . ?s)))
+(setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "APPT(a)" "|" "DONE(d)" "CANCELLED(c)" "DEFERRED(f)")))
+
 (setq org-directory "~/org") ; Set to the location of your Org files on your local system
 (setq org-mobile-inbox-for-pull "~/org/gtd.org") ; Set to the name of the file where new notes will be stored
 (setq org-mobile-directory "~/Dropbox/¾Û/MobileOrg") ; Set to <your Dropbox root directory>/MobileOrg.
