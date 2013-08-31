@@ -38,21 +38,21 @@
 
 (setq org-log-done t)
 (setq org-agenda-files (quote ("~/org")))
-(setq org-default-notes-file (concat org-directory "/notes.org"))
+;(setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-templates
-      '(("c" "collect" entry (file+headline "~/org/collect.org" "Inbox") "* TODO %?\n  %i\n")
-        ("t" "research (tremor)" entry (file+headline "~/org/research.org" "Inbox (tremor)") "* %?\n  %i\n")
-        ("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO Study %?\n  %i\n")
-        ("r" "read" entry (file+headline "~/org/read.org" "Inbox") "* TODO Read %?\n  %i\n")
-        ("b" "buy" entry (file+headline "~/org/buy.org" "Inbox") "* Buy %?\n  %i\n")
-        ("j" "journal" entry (file+datetree "~/org/journal.org") "* %?\nEntered on %U\n  %i\n  %a")
+      '(("c" "collect" entry (file+headline "~/org/collect.org" "Inbox") "* %?\n  %T\n")
+        ("t" "research (tremor)" entry (file+headline "~/org/research.org" "Inbox (tremor)") "* %?\n  %T\n")
+        ("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO Study %?\n  %T\n")
+        ("r" "read" entry (file+headline "~/org/read.org" "Inbox") "* TODO Read %?\n  %T\n")
+        ("b" "buy" entry (file+headline "~/org/buy.org" "Inbox") "* Buy %?\n  %T\n")
+        ;("j" "journal" entry (file+datetree "~/org/journal.org") "* %?\nEntered on %U\n  %i\n  %a")
 
 ))
-(setq org-tag-alist '(("@LAB" . ?l) ("@HOME" . ?h) ("@OUTSIDE" . ?o) ("@COMPUTER" . ?c) ("@SMARTPHONE" . ?s)))
-(setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "APPT(a)" "|" "DONE(d)" "CANCELLED(c)" "DEFERRED(f)")))
+(setq org-tag-alist '(("@LAB" . ?l) ("@HOME" . ?h) ("@OUTSIDE" . ?o) ("@COMPUTER" . ?c) ("@PHONE" . ?p)))
+(setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "DEFERRED(f)" "APPT(a)" "|" "DONE(d)" "CANCELLED(c)")))
 
 (setq org-directory "~/org") ; Set to the location of your Org files on your local system
-(setq org-mobile-inbox-for-pull "~/org/gtd.org") ; Set to the name of the file where new notes will be stored
+(setq org-mobile-inbox-for-pull "~/collect.org") ; Set to the name of the file where new notes will be stored
 (setq org-mobile-directory "~/Dropbox/¾Û/MobileOrg") ; Set to <your Dropbox root directory>/MobileOrg.
 
 ; org mode -- refile setup
