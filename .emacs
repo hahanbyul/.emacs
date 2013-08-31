@@ -40,11 +40,11 @@
 (setq org-agenda-files (quote ("~/org")))
 ;(setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-templates
-      '(("c" "collect" entry (file+headline "~/org/collect.org" "Inbox") "* %?\n  %T\n")
-        ("t" "research (tremor)" entry (file+headline "~/org/research.org" "Inbox (tremor)") "* %?\n  %T\n")
-        ("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO Study %?\n  %T\n")
-        ("r" "read" entry (file+headline "~/org/read.org" "Inbox") "* TODO Read %?\n  %T\n")
-        ("b" "buy" entry (file+headline "~/org/buy.org" "Inbox") "* Buy %?\n  %T\n")
+      '(("c" "collect" entry (file+headline "~/org/collect.org" "Inbox") "* %?\n  %U\n")
+        ("t" "research (tremor)" entry (file+headline "~/org/research.org" "Inbox (tremor)") "* %?\n  %U\n")
+        ("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO Study %?\n  %U\n")
+        ("r" "read" entry (file+headline "~/org/read.org" "Inbox") "* TODO Read %?\n  %U\n")
+        ("b" "buy" entry (file+headline "~/org/buy.org" "Inbox") "* Buy %?\n  %U\n")
         ;("j" "journal" entry (file+datetree "~/org/journal.org") "* %?\nEntered on %U\n  %i\n  %a")
 
 ))
