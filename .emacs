@@ -41,17 +41,17 @@
 ;(setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-templates
       '(("c" "collect" entry (file+headline "~/org/collect.org" "Inbox") "* %?\n  %U\n")
-        ("t" "research (tremor)" entry (file+headline "~/org/research.org" "Inbox (tremor)") "* %?\n  %U\n")
-        ("s" "study" entry (file+headline "~/org/study.org" "Inbox") "* TODO Study %?\n  %U\n")
-        ("r" "read" entry (file+headline "~/org/read.org" "Inbox") "* TODO Read %?\n  %U\n")
-        ("b" "buy" entry (file+headline "~/org/buy.org" "Inbox") "* Buy %?\n  %U\n")
+        ("t" "research (tremor)" entry (file+headline "~/org/research.org" "Next action (tremor)") "* %?\n  %U\n")
+        ("s" "study" entry (file+headline "~/org/study.org" "Next action") "* TODO Study %?\n  %U\n")
+        ("r" "read" entry (file+headline "~/org/read.org" "Next action") "* TODO Read %?\n  %U\n")
+        ("b" "buy" entry (file+headline "~/org/buy.org" "Next action") "* Buy %?\n  %U\n")
         ;("j" "journal" entry (file+datetree "~/org/journal.org") "* %?\nEntered on %U\n  %i\n  %a")
-
 ))
-(setq org-tag-alist '(("@LAB" . ?l) ("@HOME" . ?h) ("@OUTSIDE" . ?o) ("@COMPUTER" . ?c) ("@PHONE" . ?p)))
-(setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "DEFERRED(f)" "APPT(a)" "|" "DONE(d)" "CANCELLED(c)")))
+(setq org-tag-alist '(("@DESK" . ?d) ("@INTERNET" . ?i) ("@COMPUTER" . ?c) ("@LAB" . ?l) ("@PHONE" . ?p) ("@HOME" . ?h) ("@OUTSIDE" . ?o)  ))
+(setq org-todo-keywords '((sequence "TODO(t)" "STARTED(s)" "WAITING(w)" "DEFERRED(f)" "PROJECT(p)" "|" "DONE(d)")))
 
 (setq org-directory "~/org") ; Set to the location of your Org files on your local system
+(setq org-archive-location (concat org-directory "/archive/%s_archive::"))
 (setq org-mobile-inbox-for-pull "~/collect.org") ; Set to the name of the file where new notes will be stored
 (setq org-mobile-directory "~/Dropbox/¾Û/MobileOrg") ; Set to <your Dropbox root directory>/MobileOrg.
 
@@ -101,3 +101,8 @@
 
 (setq org-babel-default-header-args:matlab
   '((:results . "output") (:session . "*MATLAB*")))
+
+; g-client --not installed
+;(add-to-list 'load-path "~/.emacs.d/emacs-epackage--g-client/")
+;(load-library "g")
+;(setq g-user-email "hahanbyul@gmail.com")
