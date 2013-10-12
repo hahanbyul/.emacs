@@ -1,5 +1,5 @@
 (setq default-directory "d:/home/hanbyulkim")
-(server-start) ; to run emacs only one time
+;(server-start) ; to run emacs only one time
 (add-to-list 'load-path "~/.emacs.d/")
 (set-face-attribute 'default nil :font "³ª´®°íµñÄÚµù-11") ; font setup
 (setq backup-directory-alist '(("." . "~/.emacs.d/backup")) ; backup file setup
@@ -40,7 +40,7 @@
 (setq org-agenda-files (quote ("~/org")))
 ;(setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-capture-templates
-      '(("c" "collect" entry (file+headline "~/org/collect.org" "Inbox") "* %?\n  %U\n")
+      '(("c" "collect" entry (file+headline "~/org/collect.org" "Inbox") "* %?\n  RECORDED: %U\n\n")
         ("t" "research (tremor)" entry (file+headline "~/org/research.org" "Next action (tremor)") "* %?\n  %U\n")
         ("s" "study" entry (file+headline "~/org/study.org" "Next action") "* TODO Study %?\n  %U\n")
         ("r" "read" entry (file+headline "~/org/read.org" "Next action") "* TODO Read %?\n  %U\n")
@@ -106,3 +106,12 @@
 ;(add-to-list 'load-path "~/.emacs.d/emacs-epackage--g-client/")
 ;(load-library "g")
 ;(setq g-user-email "hahanbyul@gmail.com")
+
+; deft
+(add-to-list 'load-path "~/.emacs.d/deft")
+(require 'deft)
+(setq deft-extension "org"
+      deft-directory "~/wiki"
+      deft-text-mode 'org-mode
+      deft-use-filename-as-title t)
+(global-set-key (kbd "<f9>") 'deft)
